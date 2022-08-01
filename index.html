@@ -16,13 +16,19 @@
     <main class="flex">
         <div class="adding-section">
             <label for="nameInput">Add Member</label>
+            <div class="flex">
              <input type="text" id="nameInput" placeholder="write a name">
+             <button class="addBtn" onclick="insertName()">Add</button>
+            </div>
         </div>
-        <button class="addBtn" onclick="insertName()">Add</button>
+        
         <div class="teams-section">
         <label for="teamsNumber">Teams</label>
-        <input type="number" id="teamsNumber" placeholder="pick 1-9" min="1" max="6" onchange="teams()"  oninvalid="checkNumber()">
-     
+        <div class="flex">
+        <button class="plusButton" onclick="createTeams()">+</button>
+        <input type="number" id="teamsNumber" value="2" readonly>
+        <button class="minusButton" onclick="removeTeams()">-</button>
+    </div>
         </div>
       
     </main>
@@ -32,13 +38,12 @@
         </ul>
     </div>
     <div class="btn flex">
-        <button onclick="dividTeams()">Assighn Member</button>
-        <button >Reset</button>
+        <button onclick="dividTeams()">Assign Member</button>
+        <button onclick="reset()" >Reset</button>
     </div>
 </section>
     <aside>
         <div class="cards flex">
-            <div class="s-cards">
             <div class="card">
                 <h3>TEAM 1</h3>
                 <ul class="team-members unlysted-list">
@@ -51,53 +56,6 @@
 
             </ul>
             </div>
-            <div class="card">
-                <h3>TEAM 3</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-        </div>
-        <div class="s-cards">
-            <div class="card">
-                <h3>TEAM 4</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-            <div class="card">
-                <h3>TEAM 5</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-            <div class="card">
-                <h3>TEAM 6</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-        </div>
-        <div class="s-cards">
-            <div class="card">
-                <h3>TEAM 7</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-            <div class="card">
-                <h3>TEAM 8</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-            <div class="card">
-                <h3>TEAM 9</h3>
-                <ul class="team-members unlysted-list">
-
-                </ul>
-            </div>
-        </div>
         </div>
 
     </aside>

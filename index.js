@@ -1,95 +1,88 @@
 
 const insertName = function(){
-    let name = document.getElementById("nameInput").value;
+    const name = document.getElementById("nameInput");
     let newname= document.createElement("li");
-    let line = document.createElement("hr")
     let namelist = document.getElementById("list")
-    newname.innerText = name
-    namelist.append(newname, line)
-    if(name === ""){
-        alert("you need to write a name ")
+    newname.innerText = name.value
+    if(name.value !== ""){
+    namelist.appendChild(newname)
+    name.value = ""
+
+    }else{
+        alert("please write a valid name")
     }
-    if(namelist.children.length >= 27){
-        alert("the max is 18 names")
-    }
+   
+          
+  
 }
 
-const checkNumber = function(){
-    let number = document.getElementById("teamsNumber").value;
-    if(number < 1 ){
-        alert("you need to use one team at least")
-    }else if (number > 6){
-        alert("the max is 6 teams")
-    }
-
-
-
-
+function templet(num){
+    const cards = document.querySelector(".cards")
+    cards.innerHTML +=  `<div class="card">
+    <h3> TEAM ${num}</h3>
+    <ul class="team-members unlysted-list">
+  </ul>
+  </div>`
 }
-const teams = function(){
-    let number = document.getElementById("teamsNumber").value;
-    let cards = document.getElementsByClassName("card");
-    for (let i = 0; i < number; i++) {
-        cards[i].classList.add("visble")  
-    }    
-}
-function shuffle() {
-    let names = document.getElementById("list");
-    let lis = names.getElementsByTagName("li");
-    var currentIndex = array.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      var randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      var temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  
-    return array;
-  }
-const so = function(){
-  let names = document.getElementById("list");
-  let lis = names.getElementsByTagName("li");
-for (let index = 0; index < lis.length; index++) {
-    let arrayOfElements = Array.from(lis[index].innerText); 
+
+const createTeams = function(){
+    const inputNumber = document.querySelector(".teams-section input");
+    const cards = document.querySelector(".cards")
+    inputNumber.value++
+templet(inputNumber.value)
     
-    console.log(arrayOfElements.join(''))
-}
-
-
-}
-
-
-
-
-
-
-const dividTeams = function(){
-let names = document.getElementById("list");
-let lis = names.getElementsByTagName("li");
- let teams = document.getElementsByClassName("team-members");
- let arrayOfElements = Array()
  
-for (let i = 0; i < lis.length; i++) {
-  let name = document.createElement("li");
-  let line = document.createElement("hr")
-  arrayOfElements = Array.from(lis[i].innerText);
-  name.innerText = arrayOfElements.join('')
-  let y = 0;
-teams[y].append(name)
-for(let team of teams){
-  if(teams[y].children.length===4){
-      y++
-      teams[y].append(name)
+}
+
+const removeTeams = function(){
+    const inputNumber = document.querySelector(".teams-section input");
+    const cards = document.querySelectorAll(".card")
+    const list = document.querySelector("#list")
+    let teamscount = parseInt(inputNumber.value)
+    let lastCard = cards[cards.length -1]
+    let lis = lastCard.querySelectorAll("li")
+    for(let li of lis){
+        list.appendChild(li)
+    }
+    if(teamscount > 2){
+    inputNumber.value--
+    lastCard.remove() 
+    }
+
+   
+}
+let y = 0;
+const dividTeams = function(){
+const lis = document.querySelectorAll("#list li")
+const teamsCount =parseInt (document.querySelector(".teams-section input").value);
+const teams = document.querySelectorAll(".card > ul")    
+let random = Math.floor(Math.random()* lis.length);
+
+
+let person = lis[random]
+
+if(person){
+     if(y === teamsCount){
+         y = 0;
+     }
+     if(teams[y].children.length === 3){
+        y++
+     }
+    teams[y].appendChild(person)
+    y++
+}
+
+}
+
+const reset = function(){
+document.querySelector("#list").innerHTML = "";
+document.querySelector(".teams-section input").value = "2";
+document.querySelector(".cards").innerHTML = "";
+
+
+for( i = 0; i < 2; i++){
+    templet(i+1);
 }
 }
-}
-} 
 
 

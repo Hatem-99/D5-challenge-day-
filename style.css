@@ -19,7 +19,8 @@ header{
     height: 70px;
     display: flex;
     align-items: center;
-    padding-left: 20vw;
+    min-width: 80vw;
+    justify-content: center;
 }
 header h1{
     font-weight: 500;
@@ -28,10 +29,17 @@ header h1{
 main{
     width: 400px;
 }
-
-section{
-    padding-left: 20vw;
+.full{
+    max-width: 80vw;
+    margin-inline: auto;
 }
+.teams-section div > button{
+    border-radius: 10px;
+}
+.teams-section div {
+    justify-content: flex-end;
+}
+
 main button{
     height: 40px;
     width: 40px;
@@ -41,35 +49,34 @@ main button{
     background-color: #527CFB;
     color: white;
 }
-.cards{
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    height: 400px;
-    padding-top: 78px;
-    padding-left: 20px;
-    gap: 30px;
-    
+.adding-section div > button{
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
 }
-.s-cards{
-    justify-content: space-around;
-    display: flex;
+.cards{
+flex-wrap: wrap;
+}
+aside{
+    width: 50%;
+}
+section{
+    width: 50%;
+}
+.card ul{
+    min-height: 150px;
 }
 .card{
     height: 150px;
-    width: 100px;
-    background-color: wheat;
-    display: none;
+    width: 25%;
+    margin: 1rem 1rem;
+    
     
 }
 .card h3 {
-    background-color: white;
+    background-color: transparent;
 }
 
-.visble{
-    display: flex;
-    flex-direction: column;
-}
+
 .flex{
     display: flex;
 }
@@ -81,7 +88,12 @@ main button{
     flex-grow: 2;
     
 }
-
+li{
+    border-bottom: 1px solid gray;
+}
+label:last-of-type{
+    justify-content: center;
+}
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -91,11 +103,9 @@ label{
     display: flex;
     align-items: end;
 }
-label,input{
-    height: 50%;
-}
+
 input{
-    border: 1px solid gray;
+    border: none;
 }
 #nameInput{
     align-self: stretch;
@@ -108,13 +118,15 @@ input{
     
 }
 #list{
-    height: 400px;
-    width: 400px;
-    background-color: beige;
+    min-height: 200px;
+    margin-bottom: 2rem;
+    width: 100%;
+    background-color: white;
+    box-shadow: inset 1px 1px  rgb(197, 191, 191);
 }
 
 .unlysted-list{
-  
+    background-color: white;
     list-style: none;
 }
 button{
@@ -126,6 +138,9 @@ button{
     border: none;
     border-radius: 10px;
 
+}
+#teamsNumber{
+    width: 30%;
 }
 .btn{
     gap: 10px;
